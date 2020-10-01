@@ -1,0 +1,259 @@
+int p = 2; //pin
+int du = 500; //duration
+int dl = 500;//delay
+int ldr;//photoresistor
+
+int melody[] = {
+  500, 535, 675, 745, 800, 880
+//1, 1#, 4, 5, 5#, 6
+};
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(p, OUTPUT);
+  pinMode(4, OUTPUT);
+  pinMode(7, OUTPUT);
+  pinMode(8, OUTPUT);
+}
+void loop() {
+    digitalRead(4);
+    digitalRead(7);
+    digitalRead(8);
+
+//mia & sebastian's buzzer
+//play order: A-B-A-C
+
+//put analogRead before each loop so that can sense the value all the time
+//A:when value of LDR is less than 15(dark), one led lights    
+    ldr = analogRead(A0);
+    Serial.println(ldr);
+    if(ldr > 0 && ldr < 15){
+      digitalWrite(4, HIGH);
+      digitalWrite(7, LOW);
+      digitalWrite(8, LOW);
+      tone(p, melody[0], du);
+      delay(500);   
+    }
+
+    ldr = analogRead(A0);
+    Serial.println(ldr);
+    ldr = analogRead(A0);
+    if(ldr > 0 && ldr < 15){
+       digitalWrite(4, HIGH);
+       digitalWrite(7, LOW);
+      digitalWrite(8, LOW);
+      tone(p, melody[2], du);
+      delay(dl);
+    }
+
+    ldr = analogRead(A0);
+    Serial.println(ldr);
+    if(ldr > 0 && ldr < 15){
+      digitalWrite(4, HIGH);
+      digitalWrite(7, LOW);
+      digitalWrite(8, LOW);
+      tone(p, melody[3], du);
+      delay(dl);
+    }
+     ldr = analogRead(A0);
+     Serial.println(ldr);
+     if(ldr > 0 && ldr < 15){
+      digitalWrite(4, HIGH);
+      tone(p, melody[4], du);
+      delay(dl);
+    }
+  
+     ldr = analogRead(A0);
+     Serial.println(ldr);
+     if(ldr > 0 && ldr < 15){
+      digitalWrite(4, HIGH);
+      digitalWrite(7, LOW);
+      digitalWrite(8, LOW);
+      tone(p, melody[3], du);
+      delay(dl);
+    }
+
+     ldr = analogRead(A0);
+     Serial.println(ldr);
+     if(ldr > 0 && ldr < 15){
+      digitalWrite(4, HIGH);
+      digitalWrite(7, LOW);
+      digitalWrite(8, LOW);
+      tone(p, melody[2], du);
+      delay(dl);
+    }
+    
+     ldr = analogRead(A0);
+     ldr = analogRead(A0);
+     if(ldr > 0 && ldr < 15){
+      digitalWrite(4, HIGH);
+      digitalWrite(7, LOW);
+      digitalWrite(8, LOW);
+      tone(p, melody[1], du);
+      delay(3000);
+    }
+
+
+
+/////////
+//B:when value of LDR is bigger than 15 and less than 30
+//yellow led lights    
+
+    
+    ldr = analogRead(A0);
+    Serial.println(ldr);
+    if(ldr > 15 && ldr < 30){
+      digitalWrite(4, LOW);
+      digitalWrite(7, HIGH);
+      digitalWrite(8, LOW);
+      tone(p, melody[1], du);
+      delay(500);
+    }
+
+
+    ldr = analogRead(A0);
+    Serial.println(ldr);
+    if(ldr > 15 && ldr < 30){
+      digitalWrite(4, LOW);
+      digitalWrite(7, HIGH);
+      digitalWrite(8, LOW);
+      tone(p, melody[2], du);
+      delay(dl);
+    }
+
+
+    ldr = analogRead(A0);
+    Serial.println(ldr);
+    if(ldr > 15 && ldr < 30){
+      digitalWrite(4, LOW);
+      digitalWrite(7, HIGH);
+      digitalWrite(8, LOW);
+      tone(p, melody[3], du);
+      delay(dl);
+    }
+
+
+    ldr = analogRead(A0);
+    Serial.println(ldr);
+    if(ldr > 15 && ldr < 30){
+      digitalWrite(4, LOW);
+      digitalWrite(7, HIGH);
+      digitalWrite(8, LOW);
+      tone(p, melody[4], du);
+      delay(dl);
+    }
+  
+
+    ldr = analogRead(A0);
+    Serial.println(ldr);
+    if(ldr > 15 && ldr < 30){
+      digitalWrite(4, LOW);
+      digitalWrite(7, HIGH);
+      digitalWrite(8, LOW);
+      tone(p, melody[3], du);
+      delay(dl);
+    }
+
+
+    ldr = analogRead(A0);
+    Serial.println(ldr);
+    if(ldr > 15 && ldr < 30){
+      digitalWrite(4, LOW);
+      digitalWrite(7, HIGH);
+      digitalWrite(8, LOW);
+      tone(p, melody[2], du);
+      delay(dl);
+    }
+    
+    ldr = analogRead(A0);
+    Serial.println(ldr);
+    if(ldr > 15 && ldr < 30){
+      digitalWrite(4, LOW);
+      digitalWrite(7, HIGH);
+      digitalWrite(8, LOW);
+      tone(p, melody[0], du);
+      delay(3000);
+    }
+
+
+//////////
+
+//C:when value of LDR is bigger than 30(birght)
+//blue led lights    
+    ldr = analogRead(A0);
+    Serial.println(ldr);
+    if(ldr > 30){
+      digitalWrite(4, LOW);
+      digitalWrite(7, LOW);
+      digitalWrite(8, HIGH);
+      tone(p, melody[5], du);
+      delay(500);
+    }
+
+
+    ldr = analogRead(A0);
+    Serial.println(ldr);
+    ldr = analogRead(A0);
+    if(ldr > 30){
+      digitalWrite(4, LOW);
+      digitalWrite(7, LOW);
+      digitalWrite(8, HIGH);
+      tone(p, melody[4], du);
+      delay(dl);
+    }
+
+
+    ldr = analogRead(A0);
+    Serial.println(ldr);
+    if(ldr > 30){
+      digitalWrite(4, LOW);
+      digitalWrite(7, LOW);
+      digitalWrite(8, HIGH);
+      tone(p, melody[3], du);
+      delay(dl);
+    }
+
+
+     ldr = analogRead(A0);
+    Serial.println(ldr);
+    if(ldr > 30){
+      digitalWrite(4, LOW);
+      digitalWrite(7, LOW);
+      digitalWrite(8, HIGH);
+      tone(p, melody[4], du);
+      delay(dl);
+    }
+  
+
+    ldr = analogRead(A0);
+    Serial.println(ldr);
+    if(ldr > 30){
+      digitalWrite(4, LOW);
+      digitalWrite(7, LOW);
+      digitalWrite(8, HIGH);
+      tone(p, melody[3], du);
+      delay(dl);
+    }
+
+
+    ldr = analogRead(A0);
+    Serial.println(ldr);
+    if(ldr > 30){
+      digitalWrite(4, LOW);
+      digitalWrite(7, LOW);
+      digitalWrite(8, HIGH);
+      tone(p, melody[2], du);
+      delay(dl);
+    }
+    
+    ldr = analogRead(A0);
+    ldr = analogRead(A0);
+    if(ldr > 30){
+      digitalWrite(4, LOW);
+      digitalWrite(7, LOW);
+      digitalWrite(8, HIGH);
+      tone(p, melody[0], du);
+      delay(3000);
+    }
+
+}
